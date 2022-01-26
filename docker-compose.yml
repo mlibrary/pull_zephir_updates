@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/app
+      - gem_cache:/gems
+    env_file:
+      - .env
+
+  mock-ht:
+    build: mock-ht/.
+    ports:
+      - 4567:4567
+    volumes:
+      - ./mock-ht/.:/app
+    env_file:
+      - .env
+
+volumes:
+  gem_cache:

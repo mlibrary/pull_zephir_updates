@@ -1,0 +1,6 @@
+.env
+*.json.gz
+!/mock-ht/file.json.gz
+.bundle
+bundle/
+.byebug_history
