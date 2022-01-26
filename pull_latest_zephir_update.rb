@@ -3,6 +3,9 @@ require 'httparty'
 require 'fileutils'
 require 'byebug'
 
+#Tasks to do:
+#Add appropriate logging
+#Add another script that gets the full update.
 auth =  {:username => ENV.fetch("HT_USERNAME") + "a", :password => ENV.fetch("HT_PASSWORD")}
 
 today = Date.today.strftime("%Y%m%d")
