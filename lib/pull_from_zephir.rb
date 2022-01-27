@@ -47,6 +47,9 @@ class PullFromZephir
   def auth
    {:username => ENV.fetch("HT_USERNAME"), :password => ENV.fetch("HT_PASSWORD")}
   end
+  def target_dir
+    ENV.fetch("TARGET_DIR")
+  end
   def filename
     #parent class
   end
@@ -56,17 +59,11 @@ class PullFromZephir
 end
 
 class PullDailyFromZephir < PullFromZephir
-  def target_dir
-    ENV.fetch("DAILY_DIR")
-  end
   def filename 
     "zephir_upd_#{format_date(Date.today)}.json.gz"
   end
 end
 class PullFullFromLastMonthFromZephir < PullFromZephir
-  def target_dir
-    ENV.fetch("FULL_DIR")
-  end
   def filename
     prev_month = Date.today.prev_month
     last_day_of_last_month = Date.new(prev_month.year, prev_month.month, -1)
