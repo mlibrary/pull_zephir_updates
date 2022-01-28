@@ -5,3 +5,4 @@
 .bundle
 bundle/
 .byebug_history
+vendor/
