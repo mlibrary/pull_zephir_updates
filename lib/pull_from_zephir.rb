@@ -2,6 +2,7 @@ require 'httparty'
 require 'fileutils'
 require 'logger'
 require 'byebug'
+require 'dotenv'
 class PullFromZephir
   def run
     logger = Logger.new(STDOUT)
@@ -60,7 +61,7 @@ end
 
 class PullDailyFromZephir < PullFromZephir
   def filename 
-    "zephir_upd_#{format_date(Date.today)}.json.gz"
+    "zephir_upd_#{format_date(Date.today.prev_day)}.json.gz"
   end
 end
 class PullFullFromLastMonthFromZephir < PullFromZephir
