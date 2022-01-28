@@ -6,8 +6,6 @@ services:
     volumes:
       - .:/app
       - gem_cache:/gems
-    env_file:
-      - .env
 
   mock-ht:
     build: mock-ht/.

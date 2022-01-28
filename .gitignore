@@ -1,4 +1,5 @@
 .env
+.bash_history
 *.json.gz
 !/mock-ht/file.json.gz
 .bundle
