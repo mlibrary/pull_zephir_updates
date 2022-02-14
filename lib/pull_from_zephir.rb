@@ -18,13 +18,13 @@ class PullFromZephir
         end
       rescue SocketError => e
         logger.error(e.to_s)
-        return
+        raise
       end
       if response.code == 200 
         logger.info("Return code: 200") 
       else 
         logger.error("Return code: #{response.code}; Message: #{response.message}")
-        return
+        raise StandardError
       end
     end
 
@@ -35,12 +35,12 @@ class PullFromZephir
         FileUtils.mv("./#{filename}", "#{target_dir}/")
       rescue => e
         logger.error("failed to move file to #{target_dir}; #{e.to_s}")
-        return
+        raise StandardError
       end
       logger.info("Moved #{filename} to #{target_dir}")
     else
       logger.error("#{filename} is empty")
-      return
+      raise StandardError
     end
     logger.info("Finished Script")
   end
